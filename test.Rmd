@@ -1,0 +1,31 @@
+---
+title: "test"
+author: "王嘉杰"
+date: '`r Sys.Date()`'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##### **下段代码作为测试RStudio和GitHub连接所用。代表你的项目的初期代码，上传到GitHub仓库的第一个版本**
+
+```{r message=FALSE, warning=FALSE, cache=TRUE, comment='', tidy=TRUE}
+# 测试代码：钻石可视化
+
+library(ggplot2)
+require(ggplot2)
+data()
+data(diamonds)
+head(diamonds)
+#柱状图
+hist(diamonds$carat,main="Carat Histogram",xlab="Carat")
+#散点图
+plot(price~carat,data=diamonds)
+plot(log(price)~log(carat),data=diamonds)
+ggplot(diamonds,aes(x=carat,y=price))+geom_point()
+#具有渲染效果的散点图
+ggplot(diamonds,aes(x=carat,y=price))+geom_point(aes(color=color))
+ggplot(diamonds,aes(x=carat,y=price))+geom_point(aes(color=color))+facet_grid(cut~clarity)
+```
